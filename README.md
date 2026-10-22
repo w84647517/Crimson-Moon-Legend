@@ -4,6 +4,8 @@
 
 核心卖点：**装备特殊参数体系** —— 稀有度决定词条数量，25 种随机词条 + 9 种传说专属词条 + 3 套套装共鸣，配合强化与洗练，构成完整的"刷装备"循环。
 
+**在线试玩**：<https://w84647517.github.io/Crimson-Moon-Legend/>　（GitHub Pages 静态版，单机；联机需按「部署」自建 Node 服务）
+
 > 纯前端、零运行时依赖、构建后是单个可离线打开的 HTML。如果这个项目对你有帮助，欢迎点个 ⭐ Star；想请作者喝一壶可以看下面的「支持作者」。
 
 | 战斗 | 背包（战力对比 / 自动回收） | 装备详情 |
@@ -31,7 +33,7 @@ npm install
 npm start          # 构建 + 启动本地服务器
 ```
 
-打开 <http://localhost:5173> 即可游玩。
+打开 <http://localhost:5173> 即可游玩。不想装环境的话，直接打开在线版：<https://w84647517.github.io/Crimson-Moon-Legend/>（单机）。
 
 其他命令：
 
@@ -45,6 +47,22 @@ npm start          # 构建 + 启动本地服务器
 `dist/index.html` 是自包含的，直接双击用浏览器打开也能玩（存档写入 localStorage，按域名/路径隔离），只是**联机需要走 `npm run serve`**。
 
 **操作**：WASD / 方向键移动，`空格` 或 `J` 普攻，`1` ~ `4` 释放对应技能，`Esc` 关闭面板；移动端有虚拟摇杆与技能盘。左侧按钮打开角色、背包、技能、传送面板。
+
+---
+
+## 支持作者
+
+代码、贴图适配与数值体系全部开源，没有内购、广告和账号系统。如果这个项目帮你省下了几天时间，或者陪你刷了几个晚上的装备，可以请作者喝一壶。
+
+<p align="center">
+  <img src="docs/images/wechat-friend.png" width="220" alt="微信好友二维码">　　<img src="docs/images/wechat-pay.png" width="220" alt="微信收款码">
+  <br>
+  <sub>加微信（备注「赤月」，反馈 / 交流）　·　微信支付（赞助完全自愿，不影响任何功能）</sub>
+</p>
+
+不想打赏也完全没问题：点个 **Star** ⭐、提个 Issue、或者把游戏发给一起开黑的朋友，都是很好的支持。
+
+> 收款码仅用于个人赞助；本项目不提供付费内容，也不会收集任何账号信息。
 
 ---
 
@@ -289,7 +307,7 @@ npm run serve
 
 ### 纯单机：GitHub Pages
 
-仓库内置了 `.github/workflows/pages.yml`：推送到 `main` 后自动构建并发布 `dist/`，站点地址为 `https://<用户名>.github.io/<仓库名>/`。静态托管没有 `/api/net/*`，联机按钮会提示不可用，单机玩法完整。
+仓库内置了 `.github/workflows/pages.yml`：推送到 `main` 后自动构建并发布 `dist/`。当前在线地址：<https://w84647517.github.io/Crimson-Moon-Legend/>（fork 后把地址换成 `https://<用户名>.github.io/<仓库名>/`）。静态托管没有 `/api/net/*`，联机按钮会提示不可用，单机玩法完整。
 
 ### 临时开黑：本机 + 内网穿透
 
@@ -297,22 +315,6 @@ npm run serve
 npm run build && npm run serve
 cloudflared tunnel --url http://localhost:5173
 ```
-
----
-
-## 支持作者
-
-代码、贴图适配与数值体系全部开源，没有内购、广告和账号系统。如果这个项目帮你省下了几天时间，或者陪你刷了几个晚上的装备，可以请作者喝一壶。
-
-<p align="center">
-  <img src="docs/images/wechat-friend.png" width="220" alt="微信好友二维码">　　<img src="docs/images/wechat-pay.png" width="220" alt="微信收款码">
-  <br>
-  <sub>加微信（备注「赤月」，反馈 / 交流）　·　微信支付（赞助完全自愿，不影响任何功能）</sub>
-</p>
-
-不想打赏也完全没问题：点个 **Star** ⭐、提个 Issue、或者把游戏发给一起开黑的朋友，都是很好的支持。
-
-> 收款码仅用于个人赞助；本项目不提供付费内容，也不会收集任何账号信息。
 
 ---
 
