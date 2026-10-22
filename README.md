@@ -275,6 +275,31 @@ npm run serve
 
 ---
 
+## 部署
+
+产物是单文件，但联机依赖常驻 Node 进程（SSE 长连接），所以按需求选：
+
+### 单机 + 联机：Render 免费实例
+
+1. 在 [Render](https://dashboard.render.com) 新建 **Web Service**，连接本仓库
+2. Build Command 填 `npm install && npm run build`，Start Command 填 `node serve.mjs`，Instance Type 选 **Free**
+3. 部署完成后拿到 `https://<服务名>.onrender.com`，和朋友打开同一地址、输入同一房间名即可联机
+
+免费实例 15 分钟无访问会休眠，首次访问需要等冷启动（约 30~60 秒）；不要设 `NODE_ENV=production`，否则构建时不会安装 esbuild。
+
+### 纯单机：GitHub Pages
+
+仓库内置了 `.github/workflows/pages.yml`：推送到 `main` 后自动构建并发布 `dist/`，站点地址为 `https://<用户名>.github.io/<仓库名>/`。静态托管没有 `/api/net/*`，联机按钮会提示不可用，单机玩法完整。
+
+### 临时开黑：本机 + 内网穿透
+
+```bash
+npm run build && npm run serve
+cloudflared tunnel --url http://localhost:5173
+```
+
+---
+
 ## 支持作者
 
 代码、贴图适配与数值体系全部开源，没有内购、广告和账号系统。如果这个项目帮你省下了几天时间，或者陪你刷了几个晚上的装备，可以请作者喝一壶。
